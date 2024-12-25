@@ -3,8 +3,7 @@ from django.shortcuts import render, redirect
 
 
 def login(request):
-
-    return redirect('/admin/')
+    return render(request, 'registration/login.html')
 
 
 def logout_user(request):
