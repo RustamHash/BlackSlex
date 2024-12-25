@@ -1,6 +1,5 @@
 import requests
 import pandas as pd
-from tkinter import filedialog
 import datetime
 import xml.etree.ElementTree as et
 from xml.dom import minidom
@@ -66,11 +65,6 @@ def __response_columns_file(__df):
                                            f'Обязательные поля для создания маршрутов {list_columns}')
             return False
     return True
-
-
-def __get_file():
-    __file_name = filedialog.askopenfilenames()
-    return __file_name
 
 
 def __load_file(__filename):

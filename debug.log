@@ -3603,3 +3603,12 @@ PermissionError: [Errno 13] Permission denied: '\\\\K008\\service$\\_wms\\2024\\
 2024-12-25 03:53:46,501 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2024-12-25 03:53:50,674 django.utils.autoreload INFO     C:\Users\rhashhanok\PycharmProjects\MyBlackApp\users\urls.py changed, reloading.
 2024-12-25 03:53:52,755 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-12-25 03:57:47,468 django.utils.autoreload INFO     C:\Users\rhashhanok\PycharmProjects\MyBlackApp\users\urls.py changed, reloading.
+2024-12-25 03:57:49,637 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-12-25 03:57:52,468 django.utils.autoreload INFO     C:\Users\rhashhanok\PycharmProjects\MyBlackApp\users\views.py changed, reloading.
+2024-12-25 03:57:54,588 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-12-25 03:58:08,401 django.utils.autoreload INFO     C:\Users\rhashhanok\PycharmProjects\MyBlackApp\users\views.py changed, reloading.
+2024-12-25 03:58:10,696 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-12-25 04:45:01,257 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-12-25 04:47:31,830 django.utils.autoreload INFO     C:\Users\rhashhanok\PycharmProjects\MyBlackApp\base_app\contract_models\krd\agro.py changed, reloading.
+2024-12-25 04:47:33,899 django.utils.autoreload INFO     Watching for file changes with StatReloader
