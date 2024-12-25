@@ -3591,3 +3591,15 @@ PermissionError: [Errno 13] Permission denied: '\\\\K008\\service$\\_wms\\2024\\
 2024-12-25 02:47:57,085 django.request WARNING  Not Found: /accounts/login/
 2024-12-25 02:47:57,197 django.request WARNING  Not Found: /favicon.ico
 2024-12-25 02:48:03,959 django.request WARNING  Not Found: /accounts/login/
+2024-12-25 03:48:25,115 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-12-25 03:48:27,041 django.request WARNING  Not Found: /accounts/login/
+2024-12-25 03:48:57,059 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-12-25 03:48:58,810 django.request WARNING  Not Found: /accounts/login/
+2024-12-25 03:49:59,918 django.utils.autoreload INFO     C:\Users\rhashhanok\PycharmProjects\MyBlackApp\users\urls.py changed, reloading.
+2024-12-25 03:50:02,068 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-12-25 03:53:34,305 django.utils.autoreload INFO     C:\Users\rhashhanok\PycharmProjects\MyBlackApp\users\views.py changed, reloading.
+2024-12-25 03:53:36,499 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-12-25 03:53:44,410 django.utils.autoreload INFO     C:\Users\rhashhanok\PycharmProjects\MyBlackApp\users\urls.py changed, reloading.
+2024-12-25 03:53:46,501 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-12-25 03:53:50,674 django.utils.autoreload INFO     C:\Users\rhashhanok\PycharmProjects\MyBlackApp\users\urls.py changed, reloading.
+2024-12-25 03:53:52,755 django.utils.autoreload INFO     Watching for file changes with StatReloader
