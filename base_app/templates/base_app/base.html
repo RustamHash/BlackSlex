@@ -1,0 +1,76 @@
+{% load static  %}
+{% load main_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'base_app/css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'base_app/css/base_home.css' %}">
+    <link rel="stylesheet" href="{% static 'base_app/css/menu.css' %}">
+    <link rel="stylesheet" href="{% static 'base_app/css/forms.css' %}">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    
+    <title>SLEX</title>
+</head>
+<body>
+<div id="container_header">
+    <div id="menu_header">
+        <div class="menu-header-left">
+            <a href="/"><img src="{% static "base_app/images/slex-logo.png" %}" alt="SLEX"></a>
+        </div>
+        <div class="menu-header-center">
+{#            {% if get_filial %}#}
+{#                <h2><a href={{ get_filial.get_home_url }}>{{ get_filial.name }}</a></h2>#}
+{#            {% else %}#}
+{#                <h2><a href="/">Главная</a></h2>#}
+{#            {% endif %}#}
+        </div>
+        <div class="menu-header-right">
+            {% if user.is_superuser %}
+                <a href="/admin/">Сервис</a>
+            {% else %}
+                <a href="{% url 'user:logout' %}">Выйти</a>
+            {% endif %}
+
+            {% if request.user.is_authenticated %}
+                {% if user.first_name or user.last_name %}
+                    <div>{{ user.get_full_name }}</div>
+                {% else %}
+                    <div>{{ user }}</div>
+                {% endif %}
+            {% else %}
+                <a href="{% url 'user:login' %}">Войти</a>
+            {% endif %}
+        </div>
+    </div>
+
+    {% block filial_list %}
+    {% endblock %}
+    {% block menu %}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% block show_result %}
+    {% endblock %}
+
+    {% if error_msg %}
+        <div id="header">
+            <div class="basic-div">
+                <div><label>
+                    <textarea>{{ error_msg }}</textarea>
+                </label></div>
+            </div>
+        </div>
+    {% endif %}
+
+    {% block modals %}
+    {% endblock %}
+
+    {% block scripts %}
+    {% endblock %}
+</div>
+</body>
+</html>

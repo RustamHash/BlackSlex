@@ -1,0 +1,13 @@
+<div id="basic_div_menu">
+    <div class="menu">
+        {% for m_item in sub_menus %}
+            {% if get_filial.slug == m_item.slug %}
+                <span class="selected"><a href="{% url m_iten.get_absolute_url %}?slug_operation={{ m_item.slug }}">{{ m_item.name }}</a></span>
+            {% else %}
+                <span class="button_line"><a href="{% url m_iten.get_absolute_url %}?slug_operation={{ m_item.slug }}">{{ m_item.name }}</a></span>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+

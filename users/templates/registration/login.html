@@ -1,0 +1,7 @@
+<!-- templates/registration/login.html -->
+<h2>Вход в самую лучшую программу в мире</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Пробуй!</button>
+</form>

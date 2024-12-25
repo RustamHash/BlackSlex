@@ -1,0 +1,46 @@
+{% extends 'base_app/base.html' %}
+{% load main_tags %}
+
+
+{% block menu %}
+    <div id="basic_div_menu">
+        <div class="menu" id="menu">
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $('#menu').on('click', 'a', function (e) {
+            let x = e.target.id
+            console.log(x)
+        });
+        
+        function getPosts(url, filial, menu) {
+            $.ajax({
+                url: url,
+                type: 'get',
+                dataType: 'json',
+                success: function (response) {
+                    // Если данные успешно получены, то создаем карточки для каждого поста
+                    $.each(response, function (index, menu_items) {
+                        let s = document.createElement("span")
+                        s.className = "button_line"
+                        let a = document.createElement("a");
+                        a.id = menu_items.slug;
+                        a.className = menu_items.slug;
+                        a.href = "#?tst=" + menu_items.slug;
+                        a.innerHTML = menu_items.name;
+                        s.appendChild(a);
+                        let m = document.getElementById("menu")
+                        m.appendChild(s)
+                    });
+                }
+            });
+        }
+
+        // Вызываем функцию для получения списка постов
+        getPosts(url = 'api/menus/');
+    </script>
+{% endblock %}

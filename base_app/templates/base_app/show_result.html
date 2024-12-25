@@ -1,0 +1,9 @@
+{% extends 'base_app/home.html' %}
+
+
+{% block show_result %}
+    <span>TEST</span>
+    {% for key, val in result.items %}
+        {{ key }}: {{ val }} <br>
+    {% endfor %}
+{% endblock %}

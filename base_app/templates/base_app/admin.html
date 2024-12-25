@@ -1,0 +1,75 @@
+{% extends 'base_app/base.html' %}
+{% load main_tags %}
+{% load static %}
+{% block filial_list %}
+    {% if user.is_superuser %}
+        {% get_filials as filials %}
+        <div id="basic_div_menu">
+            <div class="menu_filial" id="menu_filial"></div>
+            <div class="menu" id="menu"></div>
+            <div class="sub_menu" id="sub_menu"></div>
+        </div>
+        <div class="operation_div">
+            <form class="operation_form" enctype="multipart/form-data" method="post"
+                  action="/?filial={{ get_filial.slug }}">
+                {% csrf_token %}
+                <p>{{ form.as_p }}</p>
+                <input class="btn_open_file" id="submit_operation_load" type="submit" name="load_stock_btn"
+                       value="Обработать">
+            </form>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        const subMenu = document.getElementById("sub_menu")
+        const myMenu = document.getElementById("menu")
+        window.myData = {}
+
+        // Прорисовка меню филиалов
+        function getPosts(classDiv, url) {
+            {#console.log(window.);#}
+            console.log(window.myData)
+            $.ajax({
+                url: url,
+                type: 'get',
+                dataType: 'json',
+                data: window.myData,
+                success: function (response) {
+                    $(classDiv).empty()
+                    // Если данные успешно получены, то создаем карточки для каждого поста
+                    $.each(response, function (index, filial) {
+                        let card =
+                            '<span class="button_line">' +
+                            '<a href="#?filial=' + filial.slug + '"id="' + filial.slug + '">' +
+                            filial.name +
+                            '</a>' +
+                            '</span>';
+
+                        $(classDiv).append(card);
+                    });
+                }
+            });
+        }
+
+        // Вызываем функцию для получения списка постов
+        getPosts(classDiv = '#menu_filial', url = 'api/filials/');
+
+        //
+        $('#menu_filial').on('click', 'a', function (e) {
+            window.myData = {'slugFilial': e.target.id};
+            getPosts(classDiv = "#menu", url = 'api/menus/');
+            myMenu.style.display = 'flex'
+            subMenu.style.display = 'none'
+        });
+
+        //
+        $('#menu').on('click', 'a', function (e) {
+            window.myData['slugMenu'] = e.target.id;
+            getPosts(classDiv = "#sub_menu", url = 'api/submenus/');
+            subMenu.style.display = 'flex'
+        });
+
+    </script>
+{% endblock %}

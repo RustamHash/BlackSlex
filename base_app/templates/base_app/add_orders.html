@@ -1,0 +1,21 @@
+{% extends 'base_app/home.html' %}
+{% load main_tags %}
+
+{% block content %}
+    {% get_main_url_processing app_slug=get_filial.slug as main_menu_url %}
+    <div class="form_div">
+        <form class="operation_form" enctype="multipart/form-data" method="post" 
+              action="{% url main_menu_url %}?filial={{ get_filial.slug }}">
+            {% csrf_token %}
+            <p>{{ form.as_p }}</p>
+            <input class="btn_open_file" id="submit_operation_load" type="submit" name="load_stock_btn"
+                   value="Обработать">
+        </form>
+    </div>
+{% endblock %}
+
+{% block show_result %}
+<div>
+{{ result }}
+</div>
+{% endblock %}

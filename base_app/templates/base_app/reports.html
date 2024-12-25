@@ -1,0 +1,12 @@
+{% extends 'base_app/home.html' %}
+{% load main_tags %}
+
+{% block content %}
+    {% show_sub_menu menu_slug='reports' test='stock'%}
+{% endblock %}
+
+{% block show_result %}
+<div>
+{{ result }}
+</div>
+{% endblock %}
